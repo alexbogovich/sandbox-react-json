@@ -1,13 +1,10 @@
 import React, {Component} from "react"
 import JsonSandbox from "../JsonSandbox/JsonSandbox"
+import {jsonToReact} from "../../util/core"
 
 class Layout extends Component {
   render() {
-    return (
-      <div>
-        <JsonSandbox/>
-      </div>
-    )
+    return jsonToReact(null, {tag: "div", content: [{tag: JsonSandbox}]})
   }
 }
 

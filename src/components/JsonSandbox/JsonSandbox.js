@@ -1,19 +1,14 @@
 import React, {Component} from "react"
-
-
-const jsonToRest = (jsonElements, props) =>
-  jsonElements.map((e, i) =>
-    e.type ? React.createElement(e.type, {key: e.type + i, ...e.settings}, e.children ? jsonToRest(e.children, props) : null) : e)
-
+import {jsonToReact} from "../../util/core"
 
 
 class JsonSandbox extends Component {
   render() {
-    return jsonToRest([{
-      type: "div",
-      settings: {style: {textAlign: "right"}, onClick: () => console.log("hello")},
-      children: [{type: "p", children: ["hello"]}],
-    }])
+    return jsonToReact(null, {
+      tag: "div",
+      props: {style: {textAlign: "left"}, onClick: () => console.log("hello")},
+      content: [{tag: "p", content: ["hello"]}],
+    })
   }
 }
 
